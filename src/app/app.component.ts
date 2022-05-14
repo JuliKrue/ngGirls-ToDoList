@@ -11,7 +11,8 @@ import { Component, VERSION } from '@angular/core';
 
   <ul>
     <li *ngFor="let todoItem of todoList">
-    <app-todo-item></app-todo-item>
+
+    <app-todo-item [item]>"todoItem"</app-todo-item>
     </li>
   </ul>
 `,
