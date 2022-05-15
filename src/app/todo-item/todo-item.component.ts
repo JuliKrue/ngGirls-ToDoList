@@ -8,12 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./todo-item.component.scss']
 })
 
-export class TodoItemComponent implements OnInit {
-  @Input() item;
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+export interface TodoItem {
+  title: string;
+  completed?: boolean;
 }
