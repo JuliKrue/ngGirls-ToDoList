@@ -1,13 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-input-button-unit',
   template: `
     <input #inputElementRef
             [value]="title"
-            (keyup.enter)="changeTitle=$any($event.target).value">
+            (keyup.enter)="submitValue=$any($event.target).value">
             
-    <button (click)="changeTitle('Button Clicked!')">
+    <button (click)="submitValue(inputElementRef.value)">
       Save
     </button>
   `,
@@ -17,13 +17,15 @@ import { Component, OnInit } from '@angular/core';
 
 export class InputButtonUnitComponent implements OnInit {
   title = 'Hello World';
-
+  /**Definiert Output der Komponente für andere Klassen */
+  @Output() submit: EventEmitter<string> = new EventEmitter<string>();
   constructor() { }
 
   ngOnInit(): void {
   }
-
-  changeTitle(newTitle: string): void {
-    this.title = newTitle;
+/**Rename ChangeTitle zu submitValue, muss auch im template angepasst werden */
+  submitValue(newTitle: string) {
+    this.submit.emit(newTitle);
   }
+  
 }
