@@ -1,5 +1,8 @@
 import { Component, VERSION } from '@angular/core';
 
+/**Interface wird importiert */
+import { TodoItem } from './interfaces/todo-item';
+
 @Component({
   selector: 'app-root',
   template: `
@@ -22,7 +25,10 @@ import { Component, VERSION } from '@angular/core';
 
 export class AppComponent {
   title = 'todo-list';
-  todoList = [
+
+  /**Typ Zuordnung zu einer class property mit : und nicht mit = */
+  /**Verweis auf das Interface, Array mit zugehörigen Objekten */
+  todoList: TodoItem [] = [
     {title: 'install NodeJS'},
     {title: 'install Angular CLI'},
     {title: 'create new app'},
