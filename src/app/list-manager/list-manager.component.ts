@@ -1,6 +1,7 @@
 import { Component, OnInit, VERSION } from '@angular/core';
 /**Interface wird importiert */
 import { TodoItem } from '../interfaces/todo-item';
+import { TodoListService } from '../services/todo-list.service';
 
 @Component({
   selector: 'app-list-manager',
@@ -18,28 +19,20 @@ import { TodoItem } from '../interfaces/todo-item';
   styleUrls: ['./list-manager.component.css']
 })
 
-export class ListManagerComponent implements OnInit {
-  
-  /**Typ Zuordnung zu einer class property mit : und nicht mit = */
-  /**Verweis auf das Interface, Array mit zugehörigen Objekten */
-  todoList: TodoItem [] = [
-    {title: 'install NodeJS'},
-    {title: 'install Angular CLI'},
-    {title: 'create new app'},
-    {title: 'serve app'},
-    {title: 'develop app'},
-    {title: 'deploy app'},
-  ];
+
 /**addItem Methode wird implementiert, Info kommt von app-input-button-unit */
   
-  constructor() { }
+export class ListManagerComponent implements OnInit {
+  todoList: TodoItem[];
 
-  ngOnInit(): void {
+  constructor(private todoListService: TodoListService) { }
+
+  ngOnInit() {
+    this.todoList = this.todoListService.getTodoList();
   }
 
   addItem(title: string): void {
-    this.todoList.push({ title });
+    this.todoListService.addItem({ title });
   }
-
 }
 

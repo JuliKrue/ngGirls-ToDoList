@@ -8,6 +8,7 @@ import { ListManagerComponent } from './list-manager/list-manager.component';
 
 @NgModule({
   imports:      [ BrowserModule ],
+  providers: [],
   declarations: [ AppComponent,InputButtonUnitComponent, TodoItemComponent, ListManagerComponent],
   bootstrap:    [ AppComponent ]
 })
