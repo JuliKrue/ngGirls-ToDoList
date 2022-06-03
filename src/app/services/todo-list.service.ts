@@ -21,6 +21,6 @@ export class TodoListService {
   }
 
   addItem(item: TodoItem): void { 
-    this.todoList.push(item);
+  this.todoList.push(item);
   }
 }

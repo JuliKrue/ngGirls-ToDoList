@@ -27,7 +27,7 @@ export class ListManagerComponent implements OnInit {
 
   constructor(private todoListService: TodoListService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.todoList = this.todoListService.getTodoList();
   }
 
@@ -35,4 +35,3 @@ export class ListManagerComponent implements OnInit {
     this.todoListService.addItem({ title });
   }
 }
-
