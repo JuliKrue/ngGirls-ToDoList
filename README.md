@@ -8,7 +8,7 @@ Goal is to develop a basic understanding on howw Angular works.
 
 ## Result
 
-* the finishes application shows a Todo-List
+* the finished application shows a Todo-List
 * Lets you add or delete items
 * Edit titles of existing items
 * The list is saved in the browseer's local storage
